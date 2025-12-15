@@ -62,12 +62,12 @@
   transition: all 0.3s ease;
   background: transparent;
   padding: 2rem 0;
+  height: 9%;
 }
 
 .header.scrolled {
   background: rgba(239, 236, 232, 0.95);
   backdrop-filter: blur(10px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   padding: 1rem 0;
 }
 
