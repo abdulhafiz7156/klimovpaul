@@ -97,11 +97,77 @@ body {
     height: 20px;
 }
 
-.hero img {
+.hero {
+  position: relative;
+  height: calc(100vh - 80px);
+}
+
+.hero-image {
   width: 100%;
-  display: block;
-  height: 80vh;
+  height: 100%;
   object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero .hero-video-mobile {
+  display: none !important;
+}
+
+.hero .hero-video-desktop {
+  display: block !important;
+}
+
+/* Info blocks section */
+.info-blocks {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background: transparent;
+  width: 100%;
+}
+
+.info-block {
+  flex: 1;
+  padding: 40px 30px;
+  border-left: 1px solid #231f20;
+  border-right: 1px solid #231f20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 200px;
+}
+
+.info-block:first-child {
+  border-left: none;
+}
+
+.info-block:last-child {
+  border-right: none;
+}
+
+.info-title {
+  font-family: "Lovelace Bold";
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.info-description {
+  font-family: "Lovelace Text";
+  font-size: 14px;
+  color: #231f20;
+  line-height: 1.6;
+}
+
+.info-block .contact-btn {
+  margin: 0 auto;
 }
 
 @media (max-width: 768px) {
@@ -133,9 +199,37 @@ body {
     transform: translateY(0);
   }
 
-  .hero img {
-    width: 100%;
-    height: auto;
+  .hero {
+    height: calc(95vh - 160px);
+  }
+
+  .hero .hero-video-desktop {
+    display: none !important;
+  }
+
+  .hero .hero-video-mobile {
+    display: block !important;
+  }
+
+  .info-blocks {
+    display: none;
+  }
+
+  .info-block {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #231f20;
+    border-bottom: 1px solid #231f20;
+    padding: 30px 20px;
+    min-height: 150px;
+  }
+
+  .info-block:first-child {
+    border-top: none;
+  }
+
+  .info-block:last-child {
+    border-bottom: none;
   }
 }
 
@@ -168,6 +262,10 @@ body {
     width: 20px;
     height: 15px;
   }
+
+  .hero {
+    height: calc(100vh - 50px);
+  }
 }
 
 
@@ -178,7 +276,7 @@ body {
 /* second block start */
 
 .services {
-  padding: 80px 0;
+  padding: 120px 0;
 }
 
 .services-title {
@@ -239,6 +337,17 @@ body {
   padding-left: 100px;
   margin-top: 10px;
   font-family: "Lovelace Text Light";
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-content > p {
+  margin: 0;
+}
+
+.service-content .blog-link-container {
+  align-self: flex-end;
 }
 
 .service-item.active .service-content {
@@ -319,6 +428,7 @@ body {
   .service-content {
     padding-left: 40px;
     font-size: 14px;
+    gap: 15px;
   }
 }
 
@@ -420,129 +530,6 @@ body {
 
 /* fourth block start - About Section */
 
-.about-section {
-  padding: 80px 0;
-  margin-bottom: 80px;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 21px;
-  align-items: center;
-}
-
-.about-text {
-  position: relative;
-  padding-right: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-}
-
-.about-icon {
-  font-size: 48px;
-  color: #231f20;
-  display: block;
-  margin-bottom: 60px;
-  line-height: 1;
-}
-
-.about-title {
-  font-size: 26px;
-  font-weight: 400;
-  color: #4d2b29;
-  line-height: 2;
-  margin-bottom: 50px;
-  font-family: "Lovelace Bold";
-  letter-spacing: -0.5px;
-}
-
-.about-description {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #231f20;
-  margin-bottom: 50px;
-  font-weight: 300;
-  max-width: 90%;
-  font-family: "Lovelace Text Light";
-}
-
-.read-more-btn {
-  padding: 12px 28px;
-  border: 1px solid #231f20;
-  text-decoration: none;
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: #231f20;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
-}
-
-.read-more-btn svg {
-  width: 30px;
-  height: 20px;
-}
-
-.read-more-btn:hover {
-  background: #231f20;
-  color: #efece8;
-}
-
-.read-more-btn .arrow {
-  display: inline-block;
-  transform: translateY(1px);
-}
-
-.about-image {
-  width: 100%;
-  height: 700px;
-  background-image: url('./images/project3.avif');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .about-title {
-    font-size: 32px;
-  }
-  
-  .about-image {
-    height: 500px;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-icon {
-    font-size: 36px;
-    margin-bottom: 40px;
-  }
-  
-  .about-title {
-    font-size: 26px;
-    margin-bottom: 30px;
-  }
-  
-  .about-description {
-    font-size: 15px;
-    margin-bottom: 30px;
-  }
-  
-  .about-image {
-    height: 400px;
-  }
-}
-
 /* fourth block end */
 
 /* fifth block start - CTA Section */
@@ -562,75 +549,108 @@ body {
 .cta-image {
   width: 100%;
   height: 700px;
-  background-image: url('./images/project4.avif');
+  background-image: url('./images/about.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .cta-text {
-  padding: 20px;
-  background-color: #fff;
+  padding: 40px;
+  background-color: rgba(241, 241, 241, 1);
   height: 100%;
   display: flex;
-  justify-content: end;
   flex-direction: column;
-  width: auto;
+  justify-content: center;
+  gap: 30px;
 }
 
-.cta-description {
-  font-size: 16px;
-  line-height: 1.9;
-  color: rgba(56, 0, 1, 1);
-  margin-bottom: 50px;
-  font-weight: 300;
-  width: 450px;
-  font-family: "Lovelace Text Light";
-}
-
-.cta-highlight {
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgb(56, 0, 1);
-  margin-bottom: 50px;
-  font-weight: 400;
+.cta-title {
+  font-size: 24px;
   font-family: "Lovelace Bold";
-  letter-spacing: 0.5px;
+  color: #231f20;
+  margin: 0;
+  line-height: 1.4;
 }
 
-.cta-contact-btn-div {
+.cta-social {
   display: flex;
-  justify-content: end;
-  width: 100%;
+  gap: 40px;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
 
-.cta-contact-btn {
-  padding: 12px 28px;
-  border: 1px solid #000;
-  text-decoration: none;
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: #000;
-  display: inline-flex;
+.social-item {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
-  transition: all 0.3s ease;
-  width: 155px;
 }
 
-.cta-contact-btn svg {
+.social-name {
+  font-size: 16px;
+  font-family: "Lovelace Text";
+  color: #231f20;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.cta-phone-label {
+  font-size: 16px;
+  font-family: "Lovelace Text";
+  color: #231f20;
+  margin: 0;
+}
+
+.cta-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cta-phone-input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 1px solid #231f20;
+  background: transparent;
+  font-size: 16px;
+  font-family: "Lovelace Text";
+  color: #231f20;
+}
+
+.cta-phone-input::placeholder {
+  color: #999;
+}
+
+.cta-submit-btn {
+  padding: 12px 20px;
+  background: #231f20;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.cta-submit-btn:hover {
+  background: rgb(56, 0, 1);
+}
+
+.cta-submit-btn svg {
   width: 25px;
   height: 20px;
 }
 
-.cta-contact-btn:hover {
-  background: #231f20;
-  color: #efece8;
-}
-
-.cta-contact-btn .arrow {
-  display: inline-block;
-  transform: translateY(1px);
+.cta-terms {
+  font-size: 12px;
+  font-family: "Lovelace Text Light";
+  font-style: italic;
+  color: #666;
+  margin: 0;
 }
 
 /* Responsive adjustments */
@@ -638,34 +658,44 @@ body {
   .cta-content {
     display: flex;
     flex-direction: column-reverse;
+    margin-top: 40px;
   }
 
   .cta-section {
     padding: 0;
   }
 
-  .about-section {
-    padding: 0;
-    margin: 20px;
-  }
-  
   .cta-image {
     height: 500px;
     order: -1; /* Keep image on top on mobile */
   }
-    
-  .cta-description {
-    font-size: 15px;
-    margin-bottom: 40px;
-    margin-top: 100px;
-  }
-  
-  .cta-highlight {
-    font-size: 16px;
-    margin-bottom: 40px;
-  }
 
   .cta-text {
+    width: 100%;
+    padding: 30px;
+    gap: 20px;
+  }
+
+  .cta-title {
+    font-size: 20px;
+  }
+
+  .cta-social {
+    gap: 30px;
+  }
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .cta-form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cta-phone-input,
+  .cta-submit-btn {
     width: 100%;
   }
 }
