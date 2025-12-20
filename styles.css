@@ -453,9 +453,59 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 40px;
-  border: 1px solid #222;
   text-decoration: none;
   color: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.corner-plus {
+  position: absolute;
+  font-size: 40px;
+  color: #000;
+  font-weight: 300;
+  transition: all 0.4s ease;
+  pointer-events: none;
+}
+
+.corner-plus.top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.corner-plus.top-right {
+  top: 10px;
+  right: 10px;
+}
+
+.corner-plus.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.corner-plus.bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.project-card:hover .corner-plus.top-left {
+  top: calc(10px + 5%);
+  left: calc(10px + 5%);
+}
+
+.project-card:hover .corner-plus.top-right {
+  top: calc(10px + 5%);
+  right: calc(10px + 5%);
+}
+
+.project-card:hover .corner-plus.bottom-left {
+  bottom: calc(10px + 5%);
+  left: calc(10px + 5%);
+}
+
+.project-card:hover .corner-plus.bottom-right {
+  bottom: calc(10px + 5%);
+  right: calc(10px + 5%);
 }
 
 .project-text {
