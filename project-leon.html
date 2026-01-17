@@ -27,7 +27,23 @@
       </div>
       <div class="leon-card1">
         <div class="leon-card-image">
-          <img src="./images/leon.webp" alt="" />
+          <div class="slider-track">
+            <img src="./images/leon.webp" alt="" class="slide active" />
+            <img src="./images/leon1.webp" alt="" class="slide" />
+            <img src="./images/leon2.webp" alt="" class="slide" />
+            <img src="./images/leon3.avif" alt="" class="slide" />
+            
+            <button class="slider-arrow slider-prev">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </button>
+            <button class="slider-arrow slider-next">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
         </div>
 
         <div class="leon-card-content">
@@ -67,7 +83,23 @@
       </div>
 
       <div class="project-description-image">
-        <img src="./images/leon1.webp" alt="" />
+        <div class="slider-track-2">
+          <img src="./images/leon1.webp" alt="" class="slide-2 active" />
+          <img src="./images/leon2.webp" alt="" class="slide-2" />
+          <img src="./images/leon3.avif" alt="" class="slide-2" />
+          <img src="./images/project1.avif" alt="" class="slide-2" />
+          
+          <button class="slider-arrow slider-prev-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 18l-6-6 6-6"/>
+            </svg>
+          </button>
+          <button class="slider-arrow slider-next-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l6-6-6-6"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </section>
     <section class="project-center-text container">
@@ -230,5 +262,114 @@
     </div>
 
     <script src="animations/animations.js"></script>
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+      
+      const leonCard = document.querySelector('.leon-card1');
+      const leonCardContent = document.querySelector('.leon-card-content');
+      
+      // Animate text moving down as you scroll through the block (no pinning)
+      gsap.to(leonCardContent, {
+        y: 800, // Move content down to reach end of image
+        ease: 'none',
+        scrollTrigger: {
+          trigger: leonCard,
+          start: 'top bottom', // Start when block enters viewport
+          end: 'bottom top', // End when block leaves viewport
+          scrub: 0 // Directly tied to scroll
+        }
+      });
+      
+      // Project description animation - text stays fixed, image moves UP on scroll
+      const projectDescription = document.querySelector('.project-description');
+      const projectText = document.querySelector('.project-text');
+      const projectImage = document.querySelector('.project-description-image');
+      
+      // Set initial position - image starts lower
+      gsap.set(projectImage, { y: 600 });
+      
+      // Create timeline with pinned text
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: projectDescription,
+          start: 'top 100px', // Start when section is 100px from top
+          end: '+=800', // Scroll distance for animation (increased for slower movement)
+          pin: projectText, // Pin only the text
+          pinSpacing: true,
+          scrub: 0
+        }
+      })
+      .to(projectImage, {
+        y: -200, // Move image up
+        ease: 'none'
+      });
+      
+      // Slider functionality
+      const slides = document.querySelectorAll('.slider-track .slide');
+      const prevBtn = document.querySelector('.slider-prev');
+      const nextBtn = document.querySelector('.slider-next');
+      let currentSlide = 0;
+      
+      function showSlide(index) {
+        // Remove active from all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        
+        // Handle wrapping
+        if (index >= slides.length) {
+          currentSlide = 0;
+        } else if (index < 0) {
+          currentSlide = slides.length - 1;
+        } else {
+          currentSlide = index;
+        }
+        
+        // Add active to current slide
+        slides[currentSlide].classList.add('active');
+      }
+      
+      prevBtn.addEventListener('click', () => {
+        showSlide(currentSlide - 1);
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        showSlide(currentSlide + 1);
+      });
+      
+      // Second slider functionality (project-description)
+      const slides2 = document.querySelectorAll('.slider-track-2 .slide-2');
+      const prevBtn2 = document.querySelector('.slider-prev-2');
+      const nextBtn2 = document.querySelector('.slider-next-2');
+      let currentSlide2 = 0;
+      
+      function showSlide2(index) {
+        // Remove active from all slides
+        slides2.forEach(slide => slide.classList.remove('active'));
+        
+        // Handle wrapping
+        if (index >= slides2.length) {
+          currentSlide2 = 0;
+        } else if (index < 0) {
+          currentSlide2 = slides2.length - 1;
+        } else {
+          currentSlide2 = index;
+        }
+        
+        // Add active to current slide
+        slides2[currentSlide2].classList.add('active');
+      }
+      
+      prevBtn2.addEventListener('click', () => {
+        showSlide2(currentSlide2 - 1);
+      });
+      
+      nextBtn2.addEventListener('click', () => {
+        showSlide2(currentSlide2 + 1);
+      });
+    </script>
   </body>
 </html>

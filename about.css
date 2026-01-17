@@ -271,8 +271,9 @@ body {
     font-size: 20px;
   }
 
-  .info-star {
-    font-size: 32px;
+  .info-star svg {
+    width: 28px;
+    height: 28px;
   }
 }
 
@@ -327,10 +328,16 @@ body {
 }
 
 .info-star {
-    font-family: "Lovelace Bold Text";
-    font-size: 42px;
-    color: #4d2b29;
     justify-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-star svg {
+    width: 28px;
+    height: 28px;
+    transform-origin: center;
 }
 
 /* --------- 1024px --------- */
@@ -352,8 +359,9 @@ body {
         font-size: 18px;
     }
 
-    .info-star {
-        font-size: 44px;
+    .info-star svg {
+        width: 28px;
+        height: 28px;
     }
 }
 

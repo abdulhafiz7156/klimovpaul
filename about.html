@@ -49,7 +49,11 @@
           </p>
         </div>
 
-        <div class="info-star">*</div>
+        <div class="info-star">
+          <svg viewBox="0 0 24 24" id="svg9623682035">
+            <path d="M 24 10.081 L 16.63 10.081 L 21.843 4.868 L 19.132 2.157 L 13.919 7.37 L 13.919 0 L 10.081 0 L 10.081 7.37 L 4.868 2.157 L 2.157 4.868 L 7.37 10.081 L 0 10.081 L 0 13.919 L 7.37 13.919 L 2.157 19.132 L 4.868 21.843 L 10.081 16.63 L 10.081 24 L 13.919 24 L 13.919 16.63 L 19.132 21.843 L 21.843 19.132 L 16.63 13.919 L 24 13.919 Z" fill="rgb(56, 0, 1)"></path>
+          </svg>
+        </div>
       </div>
 
       <div class="info-divider"></div>
@@ -64,7 +68,11 @@
           </p>
         </div>
 
-        <div class="info-star">*</div>
+        <div class="info-star">
+          <svg viewBox="0 0 24 24" id="svg9623682035">
+            <path d="M 24 10.081 L 16.63 10.081 L 21.843 4.868 L 19.132 2.157 L 13.919 7.37 L 13.919 0 L 10.081 0 L 10.081 7.37 L 4.868 2.157 L 2.157 4.868 L 7.37 10.081 L 0 10.081 L 0 13.919 L 7.37 13.919 L 2.157 19.132 L 4.868 21.843 L 10.081 16.63 L 10.081 24 L 13.919 24 L 13.919 16.63 L 19.132 21.843 L 21.843 19.132 L 16.63 13.919 L 24 13.919 Z" fill="rgb(56, 0, 1)"></path>
+          </svg>
+        </div>
       </div>
 
       <div class="info-divider"></div>
@@ -79,7 +87,11 @@
           </p>
         </div>
 
-        <div class="info-star">*</div>
+        <div class="info-star">
+          <svg viewBox="0 0 24 24" id="svg9623682035">
+            <path d="M 24 10.081 L 16.63 10.081 L 21.843 4.868 L 19.132 2.157 L 13.919 7.37 L 13.919 0 L 10.081 0 L 10.081 7.37 L 4.868 2.157 L 2.157 4.868 L 7.37 10.081 L 0 10.081 L 0 13.919 L 7.37 13.919 L 2.157 19.132 L 4.868 21.843 L 10.081 16.63 L 10.081 24 L 13.919 24 L 13.919 16.63 L 19.132 21.843 L 21.843 19.132 L 16.63 13.919 L 24 13.919 Z" fill="rgb(56, 0, 1)"></path>
+          </svg>
+        </div>
       </div>
 
       <div class="info-divider"></div>
@@ -94,7 +106,11 @@
           </p>
         </div>
 
-        <div class="info-star">*</div>
+        <div class="info-star">
+          <svg viewBox="0 0 24 24" id="svg9623682035">
+            <path d="M 24 10.081 L 16.63 10.081 L 21.843 4.868 L 19.132 2.157 L 13.919 7.37 L 13.919 0 L 10.081 0 L 10.081 7.37 L 4.868 2.157 L 2.157 4.868 L 7.37 10.081 L 0 10.081 L 0 13.919 L 7.37 13.919 L 2.157 19.132 L 4.868 21.843 L 10.081 16.63 L 10.081 24 L 13.919 24 L 13.919 16.63 L 19.132 21.843 L 21.843 19.132 L 16.63 13.919 L 24 13.919 Z" fill="rgb(56, 0, 1)"></path>
+          </svg>
+        </div>
       </div>
 
       <div class="info-divider"></div>
@@ -330,6 +346,19 @@
           pin: true,
           pinSpacing: true,
           scrub: 0 // No smoothing - immediate response to scroll
+        }
+      });
+      
+      // Rotate all stars continuously throughout the entire scroll
+      // Each star rotates 360 degrees over the total scroll distance
+      infoRows.forEach((row) => {
+        const starSvg = row.querySelector('.info-star svg');
+        if (starSvg) {
+          tl.to(starSvg, {
+            rotation: 360,
+            duration: rowsToAnimate, // Rotate over the duration of all row animations
+            ease: 'none'
+          }, 0); // Start all rotations at the same time
         }
       });
       

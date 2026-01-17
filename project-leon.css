@@ -189,36 +189,101 @@ body {
   }
 }
 
+
+.leon {
+  margin-top: 90px;
+}
+
 .leon-image img {
   width: 100%;
   height: 100%;
 }
 
-/* LEFT IMAGE */
-.leon-card-image img {
-  height: 820px;
-  width: 530px;
-  object-fit: cover;
-}
-
-.leon-card-image {
-  flex: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-}
+/* LEFT IMAGE - now handled by slider */
 
 /* RIGHT BLOCK */
 .leon-card1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 40px;
+  align-items: flex-start;
+}
+
+.leon-card-image {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.slider-track {
+  position: relative;
+  width: 530px;
+  height: 820px;
+}
+
+.slider-track .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slider-track .slide.active {
+  opacity: 1;
+}
+
+.slider-arrow {
+  background: rgba(239, 236, 232, 0.9);
+  border: 1px solid #4d2b29;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
-  margin-top: 40px;
-  gap: 60px;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.slider-prev {
+  left: 20px;
+}
+
+.slider-next {
+  right: 20px;
+}
+
+.slider-prev-2 {
+  left: 20px;
+}
+
+.slider-next-2 {
+  right: 20px;
+}
+
+.slider-arrow:hover {
+  background: #4d2b29;
+}
+
+.slider-arrow:hover svg {
+  stroke: #efece8;
+}
+
+.slider-arrow svg {
+  width: 24px;
+  height: 24px;
+  stroke: #4d2b29;
+  transition: stroke 0.3s ease;
 }
 
 .leon-card-content {
-  /* max-width: 420px; */
-  flex: 50%;
   display: flex;
   flex-direction: column;
 }
@@ -253,8 +318,30 @@ body {
     padding: 60px 0;
   }
 
-  .leon-card-image img {
+  .leon-card1 {
+    grid-template-columns: 1fr;
+  }
+  
+  .leon-card-image {
+    justify-content: center;
+  }
+  
+  .slider-track {
     width: 100%;
+    height: 500px;
+  }
+  
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .slider-prev {
+    left: 10px;
+  }
+  
+  .slider-next {
+    right: 10px;
   }
 
   .leon-card-content {
@@ -278,9 +365,6 @@ body {
   .leon-card-content {
     margin: 0 auto;
   }
-  .leon-card1 {
-    display: block;
-  }
   .leon-line {
     margin: 0 auto;
   }
@@ -297,16 +381,15 @@ body {
 }
 
 .project-description {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 60px;
   padding: 100px 170px;
+  align-items: flex-start;
 }
 
 .project-text {
-  flex: 50%;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.7;
   color: #4d2b29;
 }
@@ -317,44 +400,61 @@ body {
 
 .project-description-image {
   flex: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.project-description-image img {
+.slider-track-2 {
+  position: relative;
   width: 530px;
   height: 800px;
+}
+
+.slider-track-2 .slide-2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.slider-track-2 .slide-2.active {
+  opacity: 1;
 }
 
 @media (max-width: 1200px) {
   .project-description {
-    display: block;
+    grid-template-columns: 1fr;
   }
 
   .project-text {
     margin-bottom: 20px;
   }
-
-  .project-description-image img {
+  
+  .slider-track-2 {
     width: 100%;
-    height: 100%;
+    height: 500px;
+  }
+  
+  .slider-prev-2 {
+    left: 10px;
+  }
+  
+  .slider-next-2 {
+    right: 10px;
   }
 }
 
 @media (max-width: 900px) {
   .project-description {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     padding: 60px 20px;
     gap: 40px;
-  }
-
-  .project-text,
-  .project-description-image {
-    flex: 100%;
-  }
-
-  .project-description-image img {
-    width: 100%;
-    height: auto;
   }
 
   .project-text {
@@ -377,7 +477,7 @@ body {
 .center-text-content {
   max-width: 900px;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.7;
   color: #4d2b29;
   font-family: "Lovelace Text Light", serif;
