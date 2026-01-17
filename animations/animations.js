@@ -32,6 +32,12 @@ const heroImage = document.querySelector(".hero-image");
 
 if (heroImage) {
   window.addEventListener("scroll", () => {
+    // Disable parallax on mobile (<=900px)
+    if (window.innerWidth <= 900) {
+      heroImage.style.transform = 'translateY(0)';
+      return;
+    }
+
     const scrolled = window.pageYOffset;
     const parallaxSpeed = 0.5; // Adjust this value for more/less parallax effect
 

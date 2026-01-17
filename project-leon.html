@@ -273,41 +273,47 @@
       const leonCard = document.querySelector('.leon-card1');
       const leonCardContent = document.querySelector('.leon-card-content');
       
-      // Animate text moving down as you scroll through the block (no pinning)
-      gsap.to(leonCardContent, {
-        y: 800, // Move content down to reach end of image
-        ease: 'none',
-        scrollTrigger: {
-          trigger: leonCard,
-          start: 'top bottom', // Start when block enters viewport
-          end: 'bottom top', // End when block leaves viewport
-          scrub: 0 // Directly tied to scroll
-        }
-      });
+      // Only apply animation on desktop (>900px)
+      if (window.innerWidth > 900) {
+        // Animate text moving down as you scroll through the block (no pinning)
+        gsap.to(leonCardContent, {
+          y: 800, // Move content down to reach end of image
+          ease: 'none',
+          scrollTrigger: {
+            trigger: leonCard,
+            start: 'top bottom', // Start when block enters viewport
+            end: 'bottom top', // End when block leaves viewport
+            scrub: 0 // Directly tied to scroll
+          }
+        });
+      }
       
       // Project description animation - text stays fixed, image moves UP on scroll
       const projectDescription = document.querySelector('.project-description');
       const projectText = document.querySelector('.project-text');
       const projectImage = document.querySelector('.project-description-image');
       
-      // Set initial position - image starts lower
-      gsap.set(projectImage, { y: 600 });
-      
-      // Create timeline with pinned text
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: projectDescription,
-          start: 'top 100px', // Start when section is 100px from top
-          end: '+=800', // Scroll distance for animation (increased for slower movement)
-          pin: projectText, // Pin only the text
-          pinSpacing: true,
-          scrub: 0
-        }
-      })
-      .to(projectImage, {
-        y: -200, // Move image up
-        ease: 'none'
-      });
+      // Only apply animation on desktop (>900px)
+      if (window.innerWidth > 900) {
+        // Set initial position - image starts lower
+        gsap.set(projectImage, { y: 600 });
+        
+        // Create timeline with pinned text
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: projectDescription,
+            start: 'top 100px', // Start when section is 100px from top
+            end: '+=800', // Scroll distance for animation (increased for slower movement)
+            pin: projectText, // Pin only the text
+            pinSpacing: true,
+            scrub: 0
+          }
+        })
+        .to(projectImage, {
+          y: -200, // Move image up
+          ease: 'none'
+        });
+      }
       
       // Slider functionality
       const slides = document.querySelectorAll('.slider-track .slide');

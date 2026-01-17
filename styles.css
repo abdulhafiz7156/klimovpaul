@@ -120,7 +120,12 @@ body {
 
 .hero {
   position: relative;
+}
+
+.hero-video-wrapper {
   height: calc(100vh - 80px);
+  position: relative;
+  width: 100%;
 }
 
 .hero-image {
@@ -142,10 +147,7 @@ body {
 
 /* Info blocks section */
 .info-blocks {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   display: flex;
   background: transparent;
   width: 100%;
@@ -220,7 +222,7 @@ body {
     transform: translateY(0);
   }
 
-  .hero {
+  .hero-video-wrapper {
     height: calc(95vh - 160px);
   }
 
@@ -284,7 +286,7 @@ body {
     height: 15px;
   }
 
-  .hero {
+  .hero-video-wrapper {
     height: calc(100vh - 50px);
   }
 }
@@ -531,23 +533,23 @@ body {
 }
 
 .project-card:hover .corner-plus.top-left {
-  top: calc(10px + 5%);
-  left: calc(10px + 5%);
+  top: calc(5px + 5%);
+  left: calc(5px + 5%);
 }
 
 .project-card:hover .corner-plus.top-right {
-  top: calc(10px + 5%);
-  right: calc(10px + 5%);
+  top: calc(5px + 5%);
+  right: calc(5px + 5%);
 }
 
 .project-card:hover .corner-plus.bottom-left {
-  bottom: calc(10px + 5%);
-  left: calc(10px + 5%);
+  bottom: calc(5px + 5%);
+  left: calc(5px + 5%);
 }
 
 .project-card:hover .corner-plus.bottom-right {
   bottom: calc(10px + 5%);
-  right: calc(10px + 5%);
+  right: calc(5px + 5%);
 }
 
 .project-text {
