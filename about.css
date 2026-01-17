@@ -56,6 +56,8 @@ body {
   align-items: center;
   justify-content: space-between;
   background: #efece8;
+  position: relative;
+  z-index: 5;
 }
 
 .logo {
@@ -79,6 +81,27 @@ body {
   color: rgb(56, 0, 1);
   font-size: 12px;
   font-family: "Lovelace Bold";
+  position: relative;
+  padding-bottom: 4px;
+}
+
+/* Nav link underline animation - draws left to right, exits left to right */
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(56, 0, 1);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s ease;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .contact-btn {
@@ -257,6 +280,9 @@ body {
 .info-section {
     width: 100%;
     margin-top: 80px;
+    background: #efece8;
+    position: relative;
+    z-index: 10;
 }
 
 .info-row {
@@ -265,6 +291,7 @@ body {
     align-items: start;
     padding: 60px 0;
     position: relative;
+    background: #efece8;
 }
 
 .info-divider {
@@ -296,6 +323,7 @@ body {
     line-height: 1.7;
     color: #4d2b29;
     font-family: "Lovelace Text Light";
+    overflow: hidden;
 }
 
 .info-star {
@@ -368,111 +396,153 @@ body {
 .cta-image {
   width: 100%;
   height: 700px;
-  background-image: url('./images/project4.avif');
+  background-image: url('./images/about.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .cta-text {
-  padding: 20px;
-  background-color: #fff;
+  padding: 40px;
+  background-color: rgba(241, 241, 241, 1);
   height: 100%;
   display: flex;
-  justify-content: end;
   flex-direction: column;
-  width: auto;
+  justify-content: center;
+  gap: 30px;
 }
 
-.cta-description {
-  font-size: 16px;
-  line-height: 1.9;
-  color: #231f20;
-  margin-bottom: 50px;
-  font-weight: 300;
-  width: 450px;
-  font-family: "Lovelace Text Light";
-}
-
-.cta-highlight {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #4d2b29;
-  margin-bottom: 50px;
-  font-weight: 400;
+.cta-title {
+  font-size: 24px;
   font-family: "Lovelace Bold";
-  letter-spacing: 0.5px;
+  color: #231f20;
+  margin: 0;
+  line-height: 1.4;
 }
 
-.cta-contact-btn-div {
+.cta-social {
   display: flex;
-  justify-content: end;
-  width: 100%;
+  gap: 40px;
+  justify-content: space-around;
+  margin-bottom: 30px;
 }
 
-.cta-contact-btn {
-  padding: 12px 28px;
-  border: 1px solid #000;
-  text-decoration: none;
-  font-size: 14px;
-  letter-spacing: 1px;
-  color: #000;
-  display: inline-flex;
+.social-item {
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
-  transition: all 0.3s ease;
-  width: 155px;
 }
 
-.cta-contact-btn .arrow svg{
+.social-name {
+  font-size: 16px;
+  font-family: "Lovelace Text";
+  color: #231f20;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.cta-phone-label {
+  font-size: 16px;
+  font-family: "Lovelace Text";
+  color: #231f20;
+  margin: 0;
+}
+
+.cta-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cta-phone-input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 1px solid #231f20;
+  background: transparent;
+  font-size: 16px;
+  font-family: "Lovelace Text";
+  color: #231f20;
+}
+
+.cta-phone-input::placeholder {
+  color: #999;
+}
+
+.cta-submit-btn {
+  padding: 12px 20px;
+  background: #231f20;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.cta-submit-btn:hover {
+  background: rgb(56, 0, 1);
+}
+
+.cta-submit-btn svg {
   width: 25px;
   height: 20px;
 }
 
-.cta-contact-btn:hover {
-  background: #231f20;
-  color: #efece8;
-}
-
-.cta-contact-btn .arrow {
-  display: inline-block;
-  transform: translateY(1px);
+.cta-terms {
+  font-size: 12px;
+  font-family: "Lovelace Text Light";
+  font-style: italic;
+  color: #666;
+  margin: 0;
 }
 
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .cta-content {
-    margin-top: 20px;
     display: flex;
     flex-direction: column-reverse;
+    margin-top: 40px;
   }
-  
+
   .cta-section {
     padding: 0;
   }
 
-  .about-section {
-    padding: 0;
-    margin: 20px;
-  }
-  
   .cta-image {
     height: 500px;
     order: -1; /* Keep image on top on mobile */
   }
-    
-  .cta-description {
-    font-size: 15px;
-    margin-bottom: 40px;
-    margin-top: 100px;
-  }
-  
-  .cta-highlight {
-    font-size: 16px;
-    margin-bottom: 40px;
-  }
 
   .cta-text {
+    width: 100%;
+    padding: 30px;
+    gap: 20px;
+  }
+
+  .cta-title {
+    font-size: 20px;
+  }
+
+  .cta-social {
+    gap: 30px;
+  }
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .cta-form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .cta-phone-input,
+  .cta-submit-btn {
     width: 100%;
   }
 }
@@ -501,6 +571,10 @@ body {
     font-size: 15px;
     line-height: 1.5;
     margin-bottom: 30px;
+  }
+
+  .cta-description {
+    width: 100%;
   }
 }
 
@@ -731,7 +805,7 @@ body {
 }
 
 .open-modal-btn {
-  padding: 12px 20px;
+  padding: 12px 0px;
   cursor: pointer;
 }
 
