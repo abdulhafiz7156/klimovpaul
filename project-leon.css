@@ -669,3 +669,31 @@ body {
 }
 
 /* sixth block end */
+
+
+
+.preloader-text {
+  font-family: "Lovelace Bold", sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* PRELOADER */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: rgb(113, 6, 6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: transform 0.8s ease-in-out;
+}
+
+#preloader.hide {
+  transform: translateY(100%); /* slide down */
+}

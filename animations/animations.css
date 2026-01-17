@@ -20,8 +20,8 @@
 }
 
 .preloader-text {
-  font-family: "Lovelace Text", sans-serif;
-  font-size: 2rem;
+  font-family: "Lovelace Bold", sans-serif;
+  font-size: 1.6rem;
   color: #fff;
   animation: fadeInOut 1.5s ease-in-out;
 }
