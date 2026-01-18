@@ -1167,6 +1167,96 @@ body {
 }
 
 
+/* SERVICE PAGE STYLES */
+.service-page {
+  padding: 120px 0;
+  min-height: calc(100vh - 80px);
+}
+
+.service-page-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media(max-width: 900px) {
+  .service-page-content {
+    margin-top: 50px;
+  }
+}
+
+.service-page-title {
+  font-family: "Lovelace Bold", serif;
+  font-size: 48px;
+  color: rgb(56, 0, 1);
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.service-page-section {
+  margin-bottom: 50px;
+}
+
+.service-page-section h2 {
+  font-family: "Lovelace Bold", serif;
+  font-size: 24px;
+  color: rgb(56, 0, 1);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.service-page-section p {
+  font-family: "Lovelace Text", serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #231f20;
+}
+
+/* Responsive styles for service page */
+@media (max-width: 768px) {
+  .service-page {
+    padding: 80px 20px;
+  }
+
+  .service-page-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .service-page-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .service-page-section p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .service-page-section {
+    margin-bottom: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-page {
+    padding: 60px 15px;
+  }
+
+  .service-page-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .service-page-section h2 {
+    font-size: 18px;
+  }
+
+  .service-page-section p {
+    font-size: 14px;
+  }
+}
+
+
 /* PRELOADER */
 #preloader {
   position: fixed;
