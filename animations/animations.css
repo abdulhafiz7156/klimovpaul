@@ -61,7 +61,7 @@
   z-index: 1000;
   transition: all 0.3s ease;
   background: transparent;
-  padding: 2rem 0;
+  padding: 2rem 0 1.7rem 0px;
   height: 9%;
 }
 
@@ -80,7 +80,7 @@
 
 .hero-image {
   width: 100%;
-  height: auto;
+  height: 80vh;
   display: block;
   transition: transform 0.1s ease-out;
   will-change: transform;

@@ -471,8 +471,12 @@ body {
 
   .service-content {
     padding-left: 40px;
-    font-size: 14px;
+    font-size: 12px;
     gap: 15px;
+  }
+
+  .blog-link {
+    font-size: 14px !important;
   }
 }
 
@@ -1045,7 +1049,7 @@ body {
   .blog-card {
     flex: 0 0 85%;
     min-width: 85%;
-    border: 1px solid #231f20 !important;
+    /* border: 1px solid #231f20 !important; */
     border-right: 1px solid #231f20 !important;
     padding: 30px;
     scroll-snap-align: start;
