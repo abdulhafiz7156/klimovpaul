@@ -124,6 +124,53 @@ headers.forEach(header => {
   window.addEventListener('resize', updateMode);
 })();
 
+// INFO BLOCKS slider control — enables slider only on mobile <=768px
+(function () {
+  const slider = document.querySelector('.info-blocks');
+
+  if (!slider) return;
+
+  function enableSliderMode() {
+    slider.style.overflowX = 'auto';
+    slider.setAttribute('tabindex', '0');
+  }
+
+  function disableSliderMode() {
+    slider.style.overflowX = 'visible';
+    slider.scrollLeft = 0;
+    slider.removeAttribute('tabindex');
+  }
+
+  function onKeyDown(e) {
+    const cardWidth = slider.querySelector('.info-block')?.offsetWidth || 0;
+    const gap = 20;
+    const scrollAmount = cardWidth + gap;
+
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+    if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    }
+  }
+
+  function updateMode() {
+    const mobile = window.innerWidth <= 768;
+    if (mobile) {
+      enableSliderMode();
+      slider.addEventListener('keydown', onKeyDown);
+    } else {
+      disableSliderMode();
+      slider.removeEventListener('keydown', onKeyDown);
+    }
+  }
+
+  updateMode();
+  window.addEventListener('resize', updateMode);
+})();
+
 
 const openModalBtns = document.querySelectorAll('.open-modal-btn');
 const modal = document.getElementById('modal');

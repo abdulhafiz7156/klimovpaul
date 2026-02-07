@@ -262,6 +262,11 @@ body {
   z-index: 10;
 }
 
+.slider-arrow img {
+  width: 26px;
+  height: 26px;
+}
+
 .slider-prev {
   left: 20px;
 }
@@ -291,6 +296,15 @@ body {
   height: 24px;
   stroke: #4d2b29;
   transition: stroke 0.3s ease;
+}
+
+
+.slider-next svg {
+  transform: rotate(45deg);
+}
+
+.slider-prev svg {
+  transform: rotate(225deg);
 }
 
 .leon-card-content {
@@ -325,7 +339,6 @@ body {
   .leon {
     flex-direction: column;
     gap: 60px;
-    padding: 60px 0;
   }
 
   .leon-card1 {
@@ -547,14 +560,14 @@ body {
 
   .two-images-wrapper img {
     width: 100%;
-    max-width: 350px;
+    max-width: 420px;
     height: auto;
   }
 }
 
 @media (max-width: 480px) {
   .two-images-wrapper img {
-    max-width: 280px;
+    max-width: 340px;
   }
 }
 
@@ -706,4 +719,49 @@ body {
 
 #preloader.hide {
   transform: translateY(100%); /* slide down */
+}
+
+.project-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  margin: 0 auto 60px;
+}
+
+.project-nav-btn {
+  padding: 12px 20px;
+  border: 1px solid #231f20;
+  text-decoration: none;
+  font-size: 14px;
+  color: #231f20;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  text-align: center;
+}
+
+.project-nav-btn.next {
+  background: #231f20;
+  color: #efece8;
+}
+
+@media (max-width: 768px) {
+  .project-nav {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .project-nav-btn {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-nav-btn {
+    max-width: 340px;
+  }
 }
