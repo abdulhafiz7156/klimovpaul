@@ -161,6 +161,18 @@ modalOverlay.addEventListener('click', () => {
   closeModal();
 });
 
+// Project showcase "All Projects" expand
+const projectsBtn = document.querySelector('.projects-btn');
+const extraProjectCards = document.querySelectorAll('.project-card.is-extra');
+
+if (projectsBtn && extraProjectCards.length > 0) {
+  projectsBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    extraProjectCards.forEach(card => card.classList.add('is-visible'));
+    projectsBtn.style.display = 'none';
+  });
+}
+
 // Phone input mask for CTA section
 const phoneInput = document.querySelector('.cta-phone-input');
 

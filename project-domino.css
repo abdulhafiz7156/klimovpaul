@@ -36,6 +36,10 @@
   font-display: block;
 }
 
+:root {
+  --header-height: 90px;
+}
+
 body {
   background: #efece8;
   font-family: "Lovelace Text", serif;
@@ -191,12 +195,18 @@ body {
 
 
 .leon {
-  margin-top: 90px;
+  margin-top: var(--header-height);
+}
+
+.leon-image {
+  height: calc(97vh - var(--header-height));
+  overflow: hidden;
 }
 
 .leon-image img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
 }
 
 /* LEFT IMAGE - now handled by slider */

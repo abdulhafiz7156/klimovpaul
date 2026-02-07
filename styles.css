@@ -538,15 +538,29 @@ body {
 
 /* Card style */
 .project-card {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  display: block;
+}
+
+.project-card.is-extra {
+  display: none;
+}
+
+.project-card.is-extra.is-visible {
+  display: block;
+}
+
+.project-card-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 40px;
-  text-decoration: none;
-  color: inherit;
   position: relative;
   overflow: hidden;
   transition: transform 0.35s ease;
+  transform-origin: center;
 }
 
 .corner-plus {
@@ -578,8 +592,8 @@ body {
   right: 10px;
 }
 
-.project-card:hover {
-  transform: scale(0.97);
+.project-card:hover .project-card-inner {
+  transform: scale(0.87);
 }
 
 .project-text {
