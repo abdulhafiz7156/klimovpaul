@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+:root {
+  --info-blocks-height: 200px;
+}
+
 @font-face {
   font-family: "Lovelace Text Light";
   src: url("./fonts/0_LovelaceText-Light.ttf") format("opentype");
@@ -111,11 +115,47 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  position: relative;
 }
 
 .contact-btn .arrow svg{
-    width: 30px;
-    height: 20px;
+    width: 11px;
+    height: 11px;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.contact-btn .arrow {
+  display: flex;
+  align-items: center;
+}
+
+.contact-btn .contact-text {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
+}
+
+.contact-btn .contact-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: rgb(56, 0, 1);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s ease;
+}
+
+.contact-btn:hover .contact-text::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.contact-btn:hover .arrow svg {
+  transform: rotate(45deg);
 }
 
 .hero {
@@ -123,7 +163,7 @@ body {
 }
 
 .hero-video-wrapper {
-  height: calc(100vh - 80px);
+  height: calc(100vh - 80px - var(--info-blocks-height));
   position: relative;
   width: 100%;
 }
@@ -151,6 +191,7 @@ body {
   display: flex;
   background: transparent;
   width: 100%;
+  min-height: var(--info-blocks-height);
 }
 
 .info-block {
@@ -282,8 +323,8 @@ body {
   }
 
   .contact-btn .arrow svg {
-    width: 20px;
-    height: 15px;
+    width: 16px;
+    height: 16px;
   }
 
   .hero-video-wrapper {
@@ -505,6 +546,7 @@ body {
   color: inherit;
   position: relative;
   overflow: hidden;
+  transition: transform 0.35s ease;
 }
 
 .corner-plus {
@@ -536,24 +578,8 @@ body {
   right: 10px;
 }
 
-.project-card:hover .corner-plus.top-left {
-  top: calc(5px + 5%);
-  left: calc(5px + 5%);
-}
-
-.project-card:hover .corner-plus.top-right {
-  top: calc(5px + 5%);
-  right: calc(5px + 5%);
-}
-
-.project-card:hover .corner-plus.bottom-left {
-  bottom: calc(5px + 5%);
-  left: calc(5px + 5%);
-}
-
-.project-card:hover .corner-plus.bottom-right {
-  bottom: calc(10px + 5%);
-  right: calc(5px + 5%);
+.project-card:hover {
+  transform: scale(0.97);
 }
 
 .project-text {
