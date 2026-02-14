@@ -118,11 +118,11 @@ body {
   position: relative;
 }
 
-.contact-btn .arrow svg{
-    width: 11px;
-    height: 11px;
-    transition: transform 0.4s ease;
-    display: block;
+.contact-btn .arrow svg {
+  width: 11px;
+  height: 11px;
+  transition: transform 0.4s ease;
+  display: block;
 }
 
 .contact-btn .arrow {
@@ -196,31 +196,58 @@ body {
 
 .info-block {
   flex: 1;
-  padding: 40px 30px;
-  border-left: 1px solid #231f20;
-  border-right: 1px solid #231f20;
+  padding: 34px 30px 30px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   min-height: 200px;
+}
+
+.info-block::before,
+.info-block::after {
+  content: "";
+  position: absolute;
+  top: 34px;
+  bottom: 0;
+  width: 1px;
+  background: #231f20;
+}
+
+.info-block::before {
+  left: 0;
+}
+
+.info-block::after {
+  right: 0;
 }
 
 .info-block:first-child {
   border-left: none;
 }
 
+.info-block:first-child::before {
+  display: none;
+}
+
 .info-block:last-child {
   border-right: none;
+}
+
+.info-block:last-child::after {
+  display: none;
 }
 
 .info-title {
   font-family: "Lovelace Bold";
   font-size: 18px;
   color: rgb(0, 0, 0);
+  margin-top: 0;
   margin-bottom: 15px;
   letter-spacing: 1px;
+  width: 100%;
 }
 
 .info-description {
@@ -228,10 +255,12 @@ body {
   font-size: 14px;
   color: #231f20;
   line-height: 1.6;
+  margin: 0;
 }
 
 .info-block .contact-btn {
   margin: 0 auto;
+  margin-top: 0;
 }
 
 @media (max-width: 768px) {
@@ -299,6 +328,11 @@ body {
     min-height: 150px;
     flex: 0 0 100%;
     scroll-snap-align: start;
+  }
+
+  .info-block::before,
+  .info-block::after {
+    display: none;
   }
 
   .info-block:first-child {
@@ -440,7 +474,7 @@ body {
   gap: 20px;
 }
 
-.service-content > p {
+.service-content>p {
   margin: 0;
 }
 
@@ -625,10 +659,11 @@ body {
   font-weight: 500;
 }
 
-.project-image img{
+.project-image img {
   width: 200px;
   height: 160px;
-  background: #ddd; /* Replace with background-image later */
+  background: #ddd;
+  /* Replace with background-image later */
 }
 
 /* Button bottom-right */
@@ -640,7 +675,7 @@ body {
   border: 1px solid #000;
   text-decoration: none;
   font-size: 16px;
-  color: #efece8; 
+  color: #efece8;
   background-color: #231f20;
   transition: 0.3s ease;
   display: flex;
@@ -732,8 +767,10 @@ body {
   font-size: 24px;
   font-family: "Lovelace Bold";
   color: #231f20;
-  margin: 0;
+  margin: -40px 0 75px 0;
   line-height: 1.4;
+  text-align: center;
+  width: 100%;
 }
 
 .cta-social {
@@ -816,6 +853,11 @@ body {
   margin: 0;
 }
 
+.cta-terms a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .cta-content {
@@ -825,14 +867,15 @@ body {
   }
 
   .cta-section {
-  position: relative;
-  z-index: 100;
+    position: relative;
+    z-index: 100;
     padding: 0;
   }
 
   .cta-image {
     height: 500px;
-    order: -1; /* Keep image on top on mobile */
+    order: -1;
+    /* Keep image on top on mobile */
   }
 
   .cta-text {
@@ -842,6 +885,7 @@ body {
   }
 
   .cta-title {
+    text-align: center;
     font-size: 20px;
   }
 
@@ -867,26 +911,26 @@ body {
 
 @media (max-width: 768px) {
   .cta-section {
-  position: relative;
-  z-index: 100;
+    position: relative;
+    z-index: 100;
     padding: 20px 0;
     margin-bottom: 60px;
   }
-  
+
   .cta-content {
     gap: 40px;
   }
-  
+
   .cta-image {
     height: 400px;
   }
-  
+
   .cta-description {
     font-size: 14px;
     line-height: 1.8;
     margin-bottom: 30px;
   }
-  
+
   .cta-highlight {
     font-size: 15px;
     line-height: 1.5;
@@ -984,35 +1028,35 @@ body {
   .footer {
     padding: 40px 0 30px;
   }
-  
+
   .footer-container {
     gap: 25px;
   }
 
   .footer-nav {
     gap: 20px;
-    margin: 40px 0;  
-  } 
+    margin: 40px 0;
+  }
 
   .footer-location {
     font-size: 12px;
     margin-bottom: 40px;
   }
-  
+
   .footer-social {
     gap: 15px;
   }
-  
+
   .social-icon {
     width: 36px;
     height: 36px;
   }
-  
+
   .social-icon img {
     width: 18px;
     height: 18px;
   }
-  
+
   .footer-copyright {
     font-size: 11px;
     text-align: center;
@@ -1038,7 +1082,8 @@ body {
 .blogs-grid {
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid transparent; /* nothing visible, just spacing help */
+  border-bottom: 1px solid transparent;
+  /* nothing visible, just spacing help */
 }
 
 .blog-card {
@@ -1080,7 +1125,7 @@ body {
   cursor: pointer;
 }
 
-.blog-link-container p svg{
+.blog-link-container p svg {
   width: 16px;
   height: 16px;
   margin-left: 5px;
@@ -1099,12 +1144,15 @@ body {
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE/Edge */
   }
 
   .blogs-slider::-webkit-scrollbar {
-    display: none; /* Chrome/Safari/Opera */
+    display: none;
+    /* Chrome/Safari/Opera */
   }
 
   .blogs-grid {
@@ -1141,7 +1189,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
@@ -1195,6 +1243,7 @@ body {
   flex-direction: column;
   gap: 20px;
 }
+
 .form-left input,
 .form-left textarea {
   background-color: rgb(241, 241, 241);
@@ -1206,13 +1255,16 @@ body {
   outline: none;
   resize: none;
 }
+
 .form-left input::placeholder,
 .form-left textarea::placeholder {
   color: #a0a0a0;
 }
+
 .form-left textarea {
   height: 250px;
 }
+
 .form-left button {
   background: #000;
   color: #fff;
@@ -1223,6 +1275,7 @@ body {
   cursor: pointer;
   transition: background 0.3s ease;
 }
+
 .form-left button:hover {
   background: #231f20;
 }
@@ -1232,6 +1285,20 @@ body {
   justify-content: center;
   margin-bottom: 20px;
   font-size: 24px;
+}
+
+.form-left .form-terms {
+  display: block;
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666;
+  text-align: center;
+}
+
+.form-left .form-terms a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .open-modal-btn {
@@ -1343,7 +1410,8 @@ body {
 }
 
 #preloader.hide {
-  transform: translateY(100%); /* slide down */
+  transform: translateY(100%);
+  /* slide down */
 }
 
 .preloader-text {

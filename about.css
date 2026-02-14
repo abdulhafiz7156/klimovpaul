@@ -426,8 +426,10 @@ body {
   font-size: 24px;
   font-family: "Lovelace Bold";
   color: #231f20;
-  margin: 0;
+  margin: -40px 0 75px 0;
   line-height: 1.4;
+  text-align: center;
+  width: 100%;
 }
 
 .cta-social {
@@ -508,6 +510,11 @@ body {
   font-style: italic;
   color: #666;
   margin: 0;
+}
+
+.cta-terms a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 /* Responsive adjustments */
@@ -816,6 +823,20 @@ body {
   justify-content: center;
   margin-bottom: 20px;
   font-size: 24px;
+}
+
+.form-left .form-terms {
+  display: block;
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666;
+  text-align: center;
+}
+
+.form-left .form-terms a {
+  color: inherit;
+  text-decoration: underline;
 }
 
 .open-modal-btn {

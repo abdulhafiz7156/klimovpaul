@@ -56,15 +56,15 @@ if (heroImage) {
 // ========================================
 
 const servicesSection = document.querySelector(".services");
-const servicesTitle = document.querySelector(".services-title");
+// const servicesTitle = document.querySelector(".services-title");
 const serviceItems = document.querySelectorAll(".service-item");
 
-if (servicesSection && servicesTitle && serviceItems.length > 0) {
+if (servicesSection && serviceItems.length > 0) {
   // Register ScrollTrigger plugin
   gsap.registerPlugin(ScrollTrigger);
 
   // Set initial state - all visible
-  gsap.set(servicesTitle, { opacity: 1, y: 0 });
+  // gsap.set(servicesTitle, { opacity: 1, y: 0 });
   gsap.set(serviceItems, { opacity: 1, y: 0 });
 
   // Create timeline for the entire animation sequence
@@ -78,22 +78,14 @@ if (servicesSection && servicesTitle && serviceItems.length > 0) {
     }
   });
 
-  // Animate title first (fades out upward)
-  tl.to(servicesTitle, {
-    opacity: 0,
-    y: -50,
-    duration: 1,
-    ease: "power2.out"
-  });
-
-  // Animate each service item sequentially (fade out upward with stagger)
+  // Keep title visible; animate only service items
   tl.to(serviceItems, {
     opacity: 0,
     y: -50,
     duration: 1,
     stagger: 0.3, // 0.3 second delay between each item
     ease: "power2.out"
-  }, "-=0.3"); // Start 0.3 seconds before title animation ends for smooth transition
+  });
 }
 
 // ========================================

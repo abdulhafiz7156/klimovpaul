@@ -428,6 +428,21 @@ body {
 .form-left button:hover {
   background: #231f20;
 }
+
+.form-left .form-terms {
+  display: block;
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666;
+  text-align: center;
+}
+
+.form-left .form-terms a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .form-right {
   display: flex;
   flex-direction: column;
@@ -491,4 +506,3 @@ body {
   }
 }
 /* New contact form block end */
-
