@@ -696,6 +696,8 @@ body {
 /* fifth block start - CTA Section */
 
 .cta-section {
+  position: relative;
+  z-index: 100;
   padding: 80px 0;
   margin-bottom: 80px;
 }
@@ -823,6 +825,8 @@ body {
   }
 
   .cta-section {
+  position: relative;
+  z-index: 100;
     padding: 0;
   }
 
@@ -863,6 +867,8 @@ body {
 
 @media (max-width: 768px) {
   .cta-section {
+  position: relative;
+  z-index: 100;
     padding: 20px 0;
     margin-bottom: 60px;
   }
