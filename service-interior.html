@@ -114,6 +114,10 @@
       </div>
 
       <div class="info-divider"></div>
+    </section>
+
+    <section class="info-section container info-section--continued">
+      <div class="info-divider"></div>
 
       <div class="info-row">
         <div class="info-number">05</div>
@@ -409,60 +413,64 @@
     <script>
       gsap.registerPlugin(ScrollTrigger);
       
-      const infoSection = document.querySelector('.info-section');
-      const infoRows = document.querySelectorAll('.info-row');
-      const totalRows = infoRows.length;
-      
-      const rowsToAnimate = totalRows - 1;
+      const infoSections = document.querySelectorAll('.info-section');
       const scrollPerRow = 90;
-      const totalScrollDistance = scrollPerRow * rowsToAnimate;
-      
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: infoSection,
-          start: 'top 80px',
-          end: `+=${totalScrollDistance}`,
-          pin: true,
-          pinSpacing: true,
-          scrub: 0
-        }
-      });
-      
-      infoRows.forEach((row) => {
-        const starSvg = row.querySelector('.info-star svg');
-        if (starSvg) {
-          tl.to(starSvg, {
-            rotation: 360,
-            duration: rowsToAnimate,
+
+      infoSections.forEach((infoSection) => {
+        const infoRows = infoSection.querySelectorAll('.info-row');
+        const totalRows = infoRows.length;
+        if (totalRows < 2) return;
+
+        const rowsToAnimate = totalRows - 1;
+        const totalScrollDistance = scrollPerRow * rowsToAnimate;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: infoSection,
+            start: 'top 80px',
+            end: `+=${totalScrollDistance}`,
+            pin: true,
+            pinSpacing: true,
+            scrub: 0
+          }
+        });
+
+        infoRows.forEach((row) => {
+          const starSvg = row.querySelector('.info-star svg');
+          if (starSvg) {
+            tl.to(starSvg, {
+              rotation: 360,
+              duration: rowsToAnimate,
+              ease: 'none'
+            }, 0);
+          }
+        });
+
+        infoRows.forEach((row, index) => {
+          if (index === totalRows - 1) return;
+
+          const infoText = row.querySelector('.info-text');
+          const infoStar = row.querySelector('.info-star');
+
+          tl.to(infoText, {
+            height: 0,
+            opacity: 0,
+            marginBottom: 0,
+            duration: 1,
             ease: 'none'
-          }, 0);
-        }
-      });
-      
-      infoRows.forEach((row, index) => {
-        if (index === totalRows - 1) return;
-        
-        const infoText = row.querySelector('.info-text');
-        const infoStar = row.querySelector('.info-star');
-        
-        tl.to(infoText, {
-          height: 0,
-          opacity: 0,
-          marginBottom: 0,
-          duration: 1,
-          ease: 'none'
-        }, index * 1)
-        .to(infoStar, {
-          opacity: 0,
-          duration: 0.5,
-          ease: 'none'
-        }, index * 1)
-        .to(row, {
-          paddingTop: 30,
-          paddingBottom: 30,
-          duration: 1,
-          ease: 'none'
-        }, index * 1);
+          }, index * 1)
+          .to(infoStar, {
+            opacity: 0,
+            duration: 0.5,
+            ease: 'none'
+          }, index * 1)
+          .to(row, {
+            paddingTop: 30,
+            paddingBottom: 30,
+            duration: 1,
+            ease: 'none'
+          }, index * 1);
+        });
       });
       
       ScrollTrigger.refresh();

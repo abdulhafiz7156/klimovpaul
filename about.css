@@ -286,6 +286,18 @@ body {
     z-index: 10;
 }
 
+.info-section--continued {
+    margin-top: 0;
+}
+
+.info-section--continued .info-divider:first-child {
+    display: none;
+}
+
+.info-section--continued .info-row:first-of-type {
+    padding-top: 0;
+}
+
 .info-row {
     display: grid;
     grid-template-columns: 150px 1fr 40px;
