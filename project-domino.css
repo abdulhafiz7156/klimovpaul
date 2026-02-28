@@ -765,3 +765,8 @@ body {
     max-width: 340px;
   }
 }
+
+/* Global text color (except footer and preloader text) */
+body :where(*):not(.footer):not(.footer *):not(#preloader):not(#preloader *) {
+  color: rgb(56, 0, 1) !important;
+}
