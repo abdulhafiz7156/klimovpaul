@@ -743,8 +743,8 @@ body {
 }
 
 .project-nav-btn.next {
-  background: #fff;
-  color: rgb(56, 0, 1);
+  background: rgb(56, 0, 1);
+  color: #fff;
 }
 
 @media (max-width: 768px) {

@@ -71,7 +71,7 @@ if (servicesSection && serviceItems.length > 0) {
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: servicesSection,
-      start: "top 20%", // Start when section is 20% from top of viewport
+      start: "top top", // Start only when section reaches top of viewport
       end: "bottom 60%", // End when section bottom is 60% from top
       scrub: 1, // Smooth scrubbing, takes 1 second to "catch up"
       // markers: true // Uncomment for debugging

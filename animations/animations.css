@@ -91,6 +91,17 @@
   position: relative;
 }
 
+/* Anchor offset for fixed header */
+#services {
+  scroll-margin-top: 140px;
+}
+
+@media (max-width: 768px) {
+  #services {
+    scroll-margin-top: 110px;
+  }
+}
+
 .services {
   position: relative;
   padding: 200px 0;
