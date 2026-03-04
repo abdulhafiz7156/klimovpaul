@@ -1385,8 +1385,10 @@ body {
   font-family: "Lovelace Bold", serif;
   font-size: 48px;
   color: rgb(56, 0, 1);
-  margin-bottom: 60px;
+  margin: 0 auto 60px;
   text-align: center;
+  max-width: auto;
+  line-height: 1.1;
 }
 
 .service-page-section {
@@ -1415,8 +1417,10 @@ body {
   }
 
   .service-page-title {
-    font-size: 32px;
+    font-size: 30px;
     margin-bottom: 40px;
+    max-width: auto;
+    line-height: 1.15;
   }
 
   .service-page-section h2 {
@@ -1440,8 +1444,10 @@ body {
   }
 
   .service-page-title {
-    font-size: 28px;
-    margin-bottom: 30px;
+    font-size: 22px;
+    margin-bottom: 24px;
+    max-width: auto;
+    line-height: 1.2;
   }
 
   .service-page-section h2 {
