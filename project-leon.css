@@ -747,8 +747,8 @@ body {
 }
 
 .project-nav-btn.next {
-  background: rgb(56, 0, 1);
-  color: #fff;
+  background: rgb(56, 0, 1) !important;
+  color: #fff !important;
 }
 
 @media (max-width: 768px) {
@@ -771,6 +771,6 @@ body {
 }
 
 /* Global text color (except footer and preloader text) */
-body :where(*):not(.footer):not(.footer *):not(#preloader):not(#preloader *) {
+body :where(*):not(.footer):not(.footer *):not(#preloader):not(#preloader *):not(.project-nav-btn.next):not(.project-nav-btn.next *) {
   color: rgb(56, 0, 1) !important;
 }
